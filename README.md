@@ -120,6 +120,16 @@ myFunction();
 
 ![full fastest laps](./readme/full-fastest-laps.png)
 
+### **12. getPracticeResults**
+
+| **Parameter**   | **Description**                                | **Default Value** |
+| --------------- | ---------------------------------------------- | ----------------- |
+| `year`          | The season from which to retrieve results      | Current year      |
+| `raceName`      | The name of the race                           | `"Australia"`     |
+| `sessionNumber` | The practice session number (typically 1 to 3) | `1`               |
+
+![full fastest laps](./readme/practice-results.png)
+
 ## Snapshots
 
 If you want to have a look at the output from the given functions check [this](https://github.com/yashkathe/F1-API/tree/master/__tests__/__snapshots__).
