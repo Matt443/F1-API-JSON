@@ -18,7 +18,7 @@ export const getPracticeResults = async (year: number = new Date().getFullYear()
         function assignTableValues(driver: string[]): isPracticeResult {
             const driverObj: isPracticeResult = {
                 position: driver[0],
-                name: driver[2].slice(0, driver[2].length - 3),
+                name: driver[2].slice(0, driver[2].length - 3).replace(/\u00a0/g, " "),
                 code: driver[2].slice(driver[2].length - 3),
                 team: driver[3],
                 laps: Number(driver[5]),
