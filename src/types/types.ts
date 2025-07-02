@@ -105,5 +105,6 @@ export type isPracticeResult = {
     name: string;
     team: string;
     time: string;
-    laps: number;
+    //Check https://www.formula1.com/en/results/1986/races/513/australia/practice/2
+    laps?: number;
 };

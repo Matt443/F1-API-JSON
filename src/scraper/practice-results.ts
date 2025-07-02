@@ -16,7 +16,7 @@ export const getPracticeResults = async (year: number = new Date().getFullYear()
         const raceResultsURL = `${staticLinks.fullResults}/${year}/${resultsURL.slice(23, resultsURL.length - 12)}/practice/${sessionNumber}`;
         console.log(raceResultsURL);
         function assignTableValues(driver: string[]): isPracticeResult {
-            return {
+            const driverObj: isPracticeResult = {
                 position: driver[0],
                 name: driver[2].slice(0, driver[2].length - 3),
                 code: driver[2].slice(driver[2].length - 3),
@@ -25,6 +25,8 @@ export const getPracticeResults = async (year: number = new Date().getFullYear()
                 time: driver[4],
                 number: Number(driver[1]),
             };
+            if (driver.length < 6) delete driverObj.laps;
+            return driverObj;
         }
 
         return getF1Table(raceResultsURL, assignTableValues) as unknown as isPracticeResult[];
