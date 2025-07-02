@@ -56,8 +56,6 @@ export type isFastestLap = {
     time: string;
 };
 
-//
-
 export type isFullRaceResult = {
     name: string;
     code: string;
@@ -98,4 +96,15 @@ export type qualiPartResult = { time: string; number: number; position: string }
 
 export type isFullQualiResult = Omit<fullQualiResult, "times"> & {
     times: qualiTimes | qualiTimesBefore1996;
+};
+
+export type isPracticeResult = {
+    code: string;
+    position: string;
+    number: number;
+    name: string;
+    team: string;
+    time: string;
+    //Check https://www.formula1.com/en/results/1986/races/513/australia/practice/2
+    laps?: number;
 };
