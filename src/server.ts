@@ -10,3 +10,4 @@ export { getFullRaceResults } from "./scraper/full-race-results";
 export { getFullQualiResults } from "./scraper/full-quali-results";
 export { getFullFastestLaps } from "./scraper/full-fastest-laps";
 export { getPracticeResults } from "./scraper/practice-results";
+export { getPitstopsSummary } from "./scraper/pitstops-summary";
