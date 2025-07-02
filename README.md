@@ -130,6 +130,17 @@ myFunction();
 
 ![full fastest laps](./readme/practice-results.png)
 
+### **13. getPitstopsSummary**
+
+| **Parameter** | **Description**                           | **Default Value** |
+| ------------- | ----------------------------------------- | ----------------- |
+| `year`        | The season from which to retrieve results | Current year      |
+| `raceName`    | The name of the race                      | `"Australia"`     |
+
+![full fastest laps](./readme/pitstops-summary.png)
+
+-   `timeOfDay` — Represents the session time **in the local timezone of the track**, but **no explicit timezone information is included in the timestamp**.
+
 ## Snapshots
 
 If you want to have a look at the output from the given functions check [this](https://github.com/yashkathe/F1-API/tree/master/__tests__/__snapshots__).
