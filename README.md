@@ -141,6 +141,15 @@ myFunction();
 
 -   `timeOfDay` — Represents the session time **in the local timezone of the track**, but **no explicit timezone information is included in the timestamp**.
 
+### **14. getStartingGrid**
+
+| **Parameter** | **Description**                           | **Default Value** |
+| ------------- | ----------------------------------------- | ----------------- |
+| `year`        | The season from which to retrieve results | Current year      |
+| `raceName`    | The name of the race                      | `"Australia"`     |
+
+![full fastest laps](./readme/starting-grid.png)
+
 ## Snapshots
 
 If you want to have a look at the output from the given functions check [this](https://github.com/yashkathe/F1-API/tree/master/__tests__/__snapshots__).
