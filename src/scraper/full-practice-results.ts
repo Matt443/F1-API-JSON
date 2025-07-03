@@ -10,11 +10,11 @@ import { getF1Table, getResultURL } from "../utils/scrapping";
  * @returns {Promise<isPracticeResult[]>}
  */
 
-export const getPracticeResults = async (year: number = new Date().getFullYear(), raceName: string = "Australia", sessionNumber: number = 1): Promise<isPracticeResult[]> => {
+export const getFullPracticeResults = async (year: number = new Date().getFullYear(), raceName: string = "Australia", sessionNumber: number = 1): Promise<isPracticeResult[]> => {
     try {
         const resultsURL = await getResultURL(year, raceName);
-        const raceResultsURL = `${staticLinks.fullResults}/${year}/${resultsURL.slice(23, resultsURL.length - 12)}/practice/${sessionNumber}`;
-        console.log(raceResultsURL);
+        const practiceResultsURL = `${staticLinks.fullResults}/${year}/${resultsURL.slice(23, resultsURL.length - 12)}/practice/${sessionNumber}`;
+
         function assignTableValues(driver: string[]): isPracticeResult {
             const driverObj: isPracticeResult = {
                 position: driver[0],
@@ -29,7 +29,7 @@ export const getPracticeResults = async (year: number = new Date().getFullYear()
             return driverObj;
         }
 
-        return getF1Table(raceResultsURL, assignTableValues) as unknown as isPracticeResult[];
+        return getF1Table(practiceResultsURL, assignTableValues) as unknown as isPracticeResult[];
     } catch (error: unknown) {
         throw new Error(error as string);
     }

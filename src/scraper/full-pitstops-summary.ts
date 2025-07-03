@@ -12,12 +12,12 @@ import { getF1Table, getResultURL } from "../utils/scrapping";
  * @returns {Promise<isPitstopsSummary[]>}
  */
 
-export const getPitstopsSummary = async (year: number = new Date().getFullYear(), raceName: string = "Australia"): Promise<isPitstopsSummary[]> => {
+export const getFullPitstopsSummary = async (year: number = new Date().getFullYear(), raceName: string = "Australia"): Promise<isPitstopsSummary[]> => {
     try {
         const resultsURL = await getResultURL(year, raceName);
-        const raceResultsURL = `${staticLinks.fullResults}/${year}/${resultsURL.slice(23, resultsURL.length - 12)}/pit-stop-summary`;
+        const pitstopsSummaryURL = `${staticLinks.fullResults}/${year}/${resultsURL.slice(23, resultsURL.length - 12)}/pit-stop-summary`;
 
-        const results = await axios(raceResultsURL);
+        const results = await axios(pitstopsSummaryURL);
         const $ = cheerio.load(results.data);
         const raceDate = $(".f1rd-page > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) p:nth-child(1)").text().slice(5);
 
@@ -36,7 +36,7 @@ export const getPitstopsSummary = async (year: number = new Date().getFullYear()
             return driverObj;
         }
 
-        return getF1Table(raceResultsURL, assignTableValues) as unknown as isPitstopsSummary[];
+        return getF1Table(pitstopsSummaryURL, assignTableValues) as unknown as isPitstopsSummary[];
     } catch (error: unknown) {
         throw new Error(error as string);
     }

@@ -1,5 +1,5 @@
-import { getPracticeResults } from "../src/server";
+import { getFullPracticeResults } from "../src/server";
 
 test("fastest laps", async () => {
-    expect(await getPracticeResults(2024)).toMatchSnapshot();
+    expect(await getFullPracticeResults(2024)).toMatchSnapshot();
 });
