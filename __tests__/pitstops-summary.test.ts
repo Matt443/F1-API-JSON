@@ -1,5 +1,5 @@
-import { getPitstopsSummary } from "../src/server";
+import { getFullPitstopsSummary } from "../src/server";
 
 test("fastest laps", async () => {
-    expect(await getPitstopsSummary(2024)).toMatchSnapshot();
+    expect(await getFullPitstopsSummary(2024)).toMatchSnapshot();
 });
