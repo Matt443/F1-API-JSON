@@ -120,3 +120,12 @@ export type isPitstopsSummary = {
     lap: number;
     total: string;
 };
+
+export type isStartingGrid = {
+    position: number;
+    number: number;
+    name: string;
+    code: string;
+    team: string;
+    time: string;
+};

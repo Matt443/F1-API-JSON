@@ -10,7 +10,7 @@ export async function getResultURL(year: number = new Date().getFullYear(), race
         const allResults = $(".f1-table tbody td > p > a")
             .map((i, el) => $(el).attr("href"))
             .get();
-        const URL = allResults.find((el) => el.includes(raceName.toLowerCase()));
+        const URL = allResults.find((el) => el.includes(raceName.replace(" ", "-").toLowerCase()));
 
         if (!URL) throw "No data found";
         return URL;

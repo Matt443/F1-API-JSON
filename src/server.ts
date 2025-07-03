@@ -11,3 +11,4 @@ export { getFullQualiResults } from "./scraper/full-quali-results";
 export { getFullFastestLaps } from "./scraper/full-fastest-laps";
 export { getFullPracticeResults } from "./scraper/full-practice-results";
 export { getFullPitstopsSummary } from "./scraper/full-pitstops-summary";
+export { getStartingGrid } from "./scraper/starting-grid";
