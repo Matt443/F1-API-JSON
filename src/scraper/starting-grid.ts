@@ -17,7 +17,7 @@ export const getStartingGrid = async (year: number = new Date().getFullYear(), r
 
         const resultsURL = await getResultURL(year, raceName);
         const startingGridURL = `${staticLinks.fullResults}/${year}/${resultsURL.slice(23, resultsURL.length - 12)}/starting-grid`;
-        console.log(startingGridURL);
+
         function assignTableValues(driver: string[]): isStartingGrid {
             return {
                 position: Number(driver[0]),
