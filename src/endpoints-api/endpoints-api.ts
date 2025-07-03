@@ -130,8 +130,9 @@ export const fullPracticeResults = async (req: Request, res: Response) => {
     try {
         const { year } = req.params;
         const raceName = req.query.raceName as string;
+        const practiceNumber = Number(req.query.sessionNumber as string);
 
-        const data = await getFullPracticeResults(parseInt(year), raceName);
+        const data = await getFullPracticeResults(parseInt(year), raceName, practiceNumber);
         res.json(data);
     } catch (err: any) {
         res.status(500).json({ error: err.message.toString() });
