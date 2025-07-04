@@ -13,6 +13,7 @@ import {
     fullFastestLaps,
     fullPracticeResults,
     fullPitstopsSummary,
+    fullSprintShootout,
 } from "./endpoints-api";
 
 const router = Router();
@@ -39,5 +40,6 @@ router.get("/getFullQualiResults/:year", fullQualiResults);
 router.get("/getFullFastestLaps/:year", fullFastestLaps);
 router.get("/getFullPracticeResults/:year", fullPracticeResults);
 router.get("/getFullPitstopsSummary/:year", fullPitstopsSummary);
+router.get("/getFullSprintShootout/:year", fullSprintShootout);
 
 export default router;

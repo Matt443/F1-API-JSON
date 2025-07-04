@@ -150,7 +150,7 @@ myFunction();
 
 ![full fastest laps](./readme/starting-grid.png)
 
-### **14. getFullSprintShootout**
+### **15. getFullSprintShootout**
 
 | **Parameter** | **Description**                           | **Default Value** |
 | ------------- | ----------------------------------------- | ----------------- |
