@@ -1,8 +1,8 @@
 import { staticLinks } from "../endpoints/endpoints";
 
-import { getF1Table, getResultURL } from "../utils/scrapping";
+import { assignQualiValues, getF1Table, getResultURL } from "../utils/scrapping";
 import { assignPropertyIfDefined } from "../utils/common";
-import { fullQualiResult, isFullQualiResult, qualiPartResult, qualiTimes } from "../types/types";
+import { fullQualiResult, isFullQualiResult, qualiPartResult } from "../types/types";
 
 /**
  *
@@ -19,20 +19,7 @@ export async function getFullQualiResults(year: number = new Date().getFullYear(
         //Before 1996 there was two quali sessions
         if (year < 1996) qualiResultsURL += "/0";
 
-        function assignTableValues(driver: string[]): fullQualiResult {
-            const driverDetails: fullQualiResult = {
-                position: driver[0],
-                number: parseInt(driver[1]),
-                name: driver[2].slice(0, driver[2].length - 3).replace(/\u00a0/g, " "),
-                code: driver[2].slice(driver[2].length - 3),
-                team: driver[3],
-                times: assignPropertyIfDefined([driver[4], driver.length > 6 ? driver[5] : false, driver.length > 7 ? driver[6] : false], ["q1", "q2", "q3"]) as qualiTimes,
-                laps: parseInt(driver[driver.length - 1]),
-            };
-
-            return driverDetails;
-        }
-        const qualiSummary = (await getF1Table(qualiResultsURL, assignTableValues)) as unknown as fullQualiResult[];
+        const qualiSummary = (await getF1Table(qualiResultsURL, assignQualiValues)) as unknown as fullQualiResult[];
         let summarizedQuali: isFullQualiResult[] = [];
 
         if (year < 1996) {
@@ -65,7 +52,7 @@ export async function getFullQualiResults(year: number = new Date().getFullYear(
             });
             return summarizedQuali;
         }
-        return getF1Table(qualiResultsURL, assignTableValues) as unknown as isFullQualiResult[];
+        return getF1Table(qualiResultsURL, assignQualiValues) as unknown as isFullQualiResult[];
     } catch (error: unknown) {
         throw new Error(error as string);
     }

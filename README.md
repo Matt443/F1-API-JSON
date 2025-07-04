@@ -150,6 +150,15 @@ myFunction();
 
 ![full fastest laps](./readme/starting-grid.png)
 
+### **14. getFullSprintShootout**
+
+| **Parameter** | **Description**                           | **Default Value** |
+| ------------- | ----------------------------------------- | ----------------- |
+| `year`        | The season from which to retrieve results | Current year      |
+| `raceName`    | The name of the race                      | `"Brazil"`        |
+
+![full fastest laps](./readme/full-sprint-shootout.png)
+
 ## Snapshots
 
 If you want to have a look at the output from the given functions check [this](https://github.com/yashkathe/F1-API/tree/master/__tests__/__snapshots__).
