@@ -129,3 +129,5 @@ export type isStartingGrid = {
     team: string;
     time: string;
 };
+
+export type isFullSprintResult = isFullRaceResult;

@@ -13,3 +13,4 @@ export { getFullPracticeResults } from "./scraper/full-practice-results";
 export { getFullPitstopsSummary } from "./scraper/full-pitstops-summary";
 export { getStartingGrid } from "./scraper/starting-grid";
 export { getFullSprintShootout } from "./scraper/full-sprint-qualifying";
+export { getFullSprintResults } from "./scraper/full-sprint-results";
