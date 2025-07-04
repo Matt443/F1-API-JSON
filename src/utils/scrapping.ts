@@ -1,7 +1,7 @@
 import axios from "axios";
 import { dynamicLinks } from "../endpoints/endpoints";
 import * as cheerio from "cheerio";
-import { fullQualiResult, qualiTimes } from "../types/types";
+import { fullQualiResult, isFullRaceResult, isFullSprintResult, qualiTimes } from "../types/types";
 import { assignPropertyIfDefined } from "./common";
 
 /**
@@ -71,4 +71,21 @@ export function assignQualiValues(driver: string[]): fullQualiResult {
     };
 
     return driverDetails;
+}
+
+/**
+ *
+ * @param {string[]} driver
+ * @returns {isFullSprintResult | isFullRaceResult}
+ */
+export function assignRaceValues(driver: string[]): isFullSprintResult | isFullRaceResult {
+    return {
+        name: driver[2].slice(0, driver[2].length - 3).replace(/\u00a0/g, " "),
+        code: driver[2].slice(driver[2].length - 3),
+        team: driver[3],
+        laps: Number(driver[4]),
+        time: driver[5],
+        points: Number(driver[6]),
+        number: Number(driver[1]),
+    };
 }
